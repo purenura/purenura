@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="content-language" content="en-us">
     
+    <!-- Page Title & Description -->
     <title>Moringa Powder Review - Benefits, Ingredients & Results</title>
     <meta name="description" content="Discover the ultimate Organic India Moringa Powder review. Explore its powerful natural nutrients, organic whole leaf ingredients, health benefits, and where to buy online."/>
     
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4L52GV8CYB"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -37,6 +39,34 @@
             background-color: var(--light-bg);
             color: var(--text-color);
             line-height: 1.6;
+            padding-bottom: 70px;
+        }
+
+        /* Moving Announcement Bar */
+        .announcement-bar {
+            background-color: var(--accent-color);
+            color: #000;
+            font-weight: bold;
+            padding: 8px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            font-size: 0.95rem;
+            box-shadow: inset 0 -2px 5px rgba(0,0,0,0.1);
+        }
+
+        .announcement-track {
+            display: inline-block;
+            animation: marquee 18s linear infinite;
+        }
+
+        .announcement-track span {
+            margin-right: 50px;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
 
         /* Header */
@@ -69,14 +99,115 @@
             letter-spacing: 1px;
         }
 
-        /* Main Container */
+        /* Scroll Animation Hero Section Container */
+        .scroll-hero-stage {
+            height: 250vh; /* Scroll length for tracking */
+            position: relative;
+            background: linear-gradient(180deg, #f4f9f4 0%, #e2f0e2 100%);
+        }
+
+        .sticky-viewport {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .product-rig {
+            position: relative;
+            width: 320px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Powder Particles Spilling Out */
+        .powder-dust {
+            position: absolute;
+            top: 110px;
+            width: 120px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(76,140,42,0.85) 0%, rgba(46,125,50,0.4) 60%, transparent 100%);
+            border-radius: 50%;
+            filter: blur(8px);
+            opacity: 0;
+            z-index: 1;
+            transform: scale(0.2);
+            pointer-events: none;
+        }
+
+        /* Canister Layers for Scroll Rotation and Opening */
+        .canister-wrapper {
+            position: relative;
+            width: 260px;
+            height: 380px;
+            z-index: 2;
+            will-change: transform;
+        }
+
+        .canister-lid {
+            position: absolute;
+            top: 0;
+            left: 10px;
+            width: 240px;
+            height: 45px;
+            background: linear-gradient(90deg, #b0b0b0, #e8e8e8, #999999);
+            border-radius: 10px 10px 4px 4px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 4;
+            transform-origin: bottom left;
+            will-change: transform;
+        }
+
+        .canister-body {
+            position: absolute;
+            top: 40px;
+            width: 260px;
+            height: 335px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            z-index: 3;
+            background: var(--white);
+        }
+
+        .canister-body img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .scroll-instruction-hint {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            width: 100%;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            animation: bounceHint 2s infinite;
+            z-index: 10;
+        }
+
+        @keyframes bounceHint {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-8px);}
+            60% {transform: translateY(-4px);}
+        }
+
+        /* Main Content Container */
         .container {
             max-width: 1100px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
 
-        /* Product Showcase Section */
+        /* Product Details Info Section */
         .product-section {
             background: var(--white);
             display: flex;
@@ -85,32 +216,15 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             overflow: hidden;
             margin-bottom: 2rem;
-        }
-
-        .product-image-container {
-            flex: 1;
-            min-width: 300px;
             padding: 2rem;
-            display: flex;
-            justify-content: center;
             align-items: center;
-            background: #fafafa;
-        }
-
-        .product-image-container img {
-            max-width: 100%;
-            height: auto;
-            max-height: 400px;
-            object-fit: contain;
+            justify-content: space-between;
         }
 
         .product-details {
             flex: 1;
             min-width: 300px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding: 1rem;
         }
 
         .brand-name {
@@ -232,14 +346,60 @@
             padding: 2.5rem;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Water Wave Effect Container */
+        .wave-container {
+            position: relative;
+            width: 100%;
+            height: 60px;
+            overflow: hidden;
+            background: transparent;
+            margin-top: 2rem;
+        }
+
+        .waves {
+            position: relative;
+            width: 100%;
+            height: 60px;
+            margin-bottom: -7px;
+        }
+
+        .parallax > use {
+            animation: move-wave 25s cubic-bezier(.55,.5,.45,.5) infinite;
+        }
+        .parallax > use:nth-child(1) {
+            animation-delay: -2s;
+            animation-duration: 7s;
+            fill: rgba(34, 34, 34, 0.7);
+        }
+        .parallax > use:nth-child(2) {
+            animation-delay: -3s;
+            animation-duration: 10s;
+            fill: rgba(34, 34, 34, 0.5);
+        }
+        .parallax > use:nth-child(3) {
+            animation-delay: -4s;
+            animation-duration: 13s;
+            fill: rgba(34, 34, 34, 0.3);
+        }
+        .parallax > use:nth-child(4) {
+            animation-delay: -5s;
+            animation-duration: 20s;
+            fill: #222222;
+        }
+
+        @keyframes move-wave {
+            0% { transform: translate3d(-90px,0,0); }
+            100% { transform: translate3d(85px,0,0); }
         }
 
         /* Legal & Footer Section */
         footer {
             background-color: #222;
             color: #aaa;
-            padding: 2rem 1rem 1rem;
+            padding: 1rem 1rem 2rem;
             font-size: 0.9rem;
         }
 
@@ -290,16 +450,77 @@
             font-size: 0.85rem;
         }
 
-        /* Responsive adjustments */
+        /* Sticky Bottom Bar */
+        .sticky-footer-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.15);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .sticky-product-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sticky-product-info img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .sticky-product-title {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .sticky-btn {
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 0.6rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 25px;
+            box-shadow: 0 2px 8px rgba(255, 153, 0, 0.3);
+            transition: background-color 0.2s;
+        }
+
+        .sticky-btn:hover {
+            background-color: #e68a00;
+        }
+
         @media (max-width: 768px) {
-            .product-section {
-                flex-direction: column;
+            .sticky-product-title {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Moving Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-track">
+            <span>🌿 Special Offer: Get Organic India Moringa Powder at Best Discounted Price on Amazon!</span>
+            <span>⚡ Limited Time Deal - Fast Delivery Available!</span>
+            <span>🌿 Special Offer: Get Organic India Moringa Powder at Best Discounted Price on Amazon!</span>
+            <span>⚡ Limited Time Deal - Fast Delivery Available!</span>
+        </div>
+    </div>
+
+    <!-- Header -->
     <header>
         <div class="logo-container">
             <img src="f07303ab-848f-4ef4-9c54-1f6215f5f209-137x137.jpg" alt="PureNura Logo">
@@ -307,13 +528,31 @@
         </div>
     </header>
 
+    <!-- Scroll-Driven Interactive Animation Stage -->
+    <div class="scroll-hero-stage" id="scrollStage">
+        <div class="sticky-viewport">
+            <div class="product-rig">
+                <!-- Powder effect popping out -->
+                <div class="powder-dust" id="powderDust"></div>
+                
+                <!-- Canister with rotation & lid opening mechanism -->
+                <div class="canister-wrapper" id="canisterWrapper">
+                    <div class="canister-lid" id="canisterLid"></div>
+                    <div class="canister-body">
+                        <img src="moringa11.jpg" alt="Organic India Moringa Powder Canister">
+                    </div>
+                </div>
+                <div class="scroll-instruction-hint">↓ Scroll Down to Open & Rotate Canister ↓</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
     <div class="container">
 
+        <!-- Product Showcase Section (Buy Button #1) -->
         <section class="product-section">
-            <div class="product-image-container">
-                <img src="moringa11.jpg" alt="Organic India Moringa Powder">
-            </div>
-            <div class="product-details">
+            <div class="product-details" style="width: 100%;">
                 <span class="brand-name">Organic India</span>
                 <h1 class="product-title">Moringa Powder</h1>
                 <p class="product-weight"><strong>Net Weight:</strong> 100 g (Canister)</p>
@@ -325,6 +564,7 @@
             </div>
         </section>
 
+        <!-- About This Item Section -->
         <section class="about-section">
             <h3>About This Item</h3>
             <ul class="feature-list">
@@ -336,12 +576,14 @@
             </ul>
         </section>
 
+        <!-- Mid-Page CTA Section (Buy Button #2) -->
         <section class="mid-cta">
             <h2>Ready to Elevate Your Daily Wellness?</h2>
             <p>Experience the pure nutrition of certified organic moringa leaves today.</p>
             <a href="https://link.amazon/B03nylvuM" target="_blank" class="buy-btn">Order Your Canister Now</a>
         </section>
 
+        <!-- Additional Information Section / Bottom CTA (Buy Button #3) -->
         <section class="bottom-cta">
             <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Get the Best Price on Amazon</h3>
             <p style="color: #666; margin-bottom: 1.5rem;">Click below to check current availability, offers, and fast delivery options.</p>
@@ -350,6 +592,23 @@
 
     </div>
 
+    <!-- Water Wave Divider Animation -->
+    <div class="wave-container">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" />
+                <use xlink:href="#gentle-wave" x="48" y="3" />
+                <use xlink:href="#gentle-wave" x="48" y="5" />
+                <use xlink:href="#gentle-wave" x="48" y="7" />
+            </g>
+        </svg>
+    </div>
+
+    <!-- Legal Section & Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-col">
@@ -374,6 +633,57 @@
             <p>&copy; 2026 PureNura. All Rights Reserved. As an Amazon Associate, we earn from qualifying purchases.</p>
         </div>
     </footer>
+
+    <!-- Sticky Bottom Bar with Amazon Link -->
+    <div class="sticky-footer-bar">
+        <div class="sticky-product-info">
+            <img src="moringa11.jpg" alt="Moringa Powder">
+            <span class="sticky-product-title">Organic India Moringa Powder (100g)</span>
+        </div>
+        <a href="https://link.amazon/B03nylvuM" target="_blank" class="sticky-btn">⚡ Buy on Amazon</a>
+    </div>
+
+    <!-- Scroll Track Animation Script -->
+    <script>
+        const scrollStage = document.getElementById('scrollStage');
+        const canisterWrapper = document.getElementById('canisterWrapper');
+        const canisterLid = document.getElementById('canisterLid');
+        const powderDust = document.getElementById('powderDust');
+
+        window.addEventListener('scroll', () => {
+            const stageRect = scrollStage.getBoundingClientRect();
+            const stageHeight = scrollStage.offsetHeight - window.innerHeight;
+            
+            // Calculate progress between 0 and 1 through the scroll zone
+            let progress = -stageRect.top / stageHeight;
+            progress = Math.max(0, Math.min(1, progress));
+
+            // 1. Rotate Container smoothly as user scrolls down and reverse on scroll up (-360deg spin)
+            let rotation = progress * 360;
+            
+            // 2. Open lid angle up to 65 degrees towards the end of progress
+            let lidAngle = 0;
+            if (progress > 0.4) {
+                let lidProgress = (progress - 0.4) / 0.6;
+                lidAngle = lidProgress * -65;
+            }
+
+            // 3. Spill out powder dust particle expansion when lid opens
+            let powderScale = 0.2;
+            let powderOpacity = 0;
+            if (progress > 0.5) {
+                let powderProgress = (progress - 0.5) / 0.5;
+                powderScale = 0.2 + (powderProgress * 1.6);
+                powderOpacity = powderProgress * 0.9;
+            }
+
+            // Apply transformations dynamically tracking scroll position
+            canisterWrapper.style.transform = `rotate(${rotation}deg) scale(${1 + progress * 0.15})`;
+            canisterLid.style.transform = `rotate(${lidAngle}deg)`;
+            powderDust.style.transform = `scale(${powderScale})`;
+            powderDust.style.opacity = powderOpacity;
+        });
+    </script>
 
 </body>
 </html>

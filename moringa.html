@@ -43,7 +43,7 @@
             overflow-x: hidden;
         }
 
-        /* Moving Announcement Bar (Speed halved to 10s) */
+        /* Moving Announcement Bar (Speed halved to 36s) */
         .announcement-bar {
             background-color: var(--accent-color);
             color: #000;
@@ -58,7 +58,7 @@
 
         .announcement-track {
             display: inline-block;
-            animation: marquee 10s linear infinite;
+            animation: marquee 36s linear infinite;
         }
 
         .announcement-track span {
@@ -66,7 +66,7 @@
         }
 
         @keyframes marquee {
-            0% { transform: translateX(100%); }
+            0% { transform: translateX(0%); }
             100% { transform: translateX(-100%); }
         }
 

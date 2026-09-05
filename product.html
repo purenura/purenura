@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en-us">
+    
+    <!-- Page Title & Description -->
+    <title>purenura - Curated Lifestyle & Smart Products</title>
+    <meta name="description" content="Discover handpicked lifestyle and smart essentials on purenura. Minimal aesthetic and curated selections.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4L52GV8CYB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4L52GV8CYB');
+    </script>
+
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-skin: #f7f1eb;
+            --skin-card: #fcf9f6;
+            --pure-black: #000000;
+            --skin-accent: #d8c2b0;
+            --skin-border: #e6dacd;
+            --text-dark: #121212;
+            --text-light: #f5ebe0;
+            --radius: 22px;
+            --heart-red: #e11d48;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* WhatsApp Chat Style Subtle Doodle Pattern Background */
+        body {
+            background-color: var(--bg-skin);
+            background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c9b7a4' fill-opacity='0.22' fill-rule='evenodd'%3E%3Cpath d='M25 15 a5 5 0 0 1 10 0 a5 5 0 0 1 -10 0 M22 17 h16 v2 h-16 z'/%3E%3Cpath d='M85 20 c3 -5 8 -5 11 0 c3 5 -2 8 -5 10 c-3 -2 -8 -5 -6 -10 z'/%3E%3Ccircle cx='20' cy='65' r='6'/%3E%3Ccircle cx='20' cy='65' r='3' fill='%23f7f1eb'/%3E%3Cpath d='M80 70 q 8 -12 16 0 t 16 0' fill='none' stroke='%23c9b7a4' stroke-width='2' stroke-opacity='0.22'/%3E%3Cpath d='M50 40 l6 12 h-12 z'/%3E%3Crect x='52' y='85' width='14' height='14' rx='3' fill='none' stroke='%23c9b7a4' stroke-width='2' stroke-opacity='0.22'/%3E%3Cpath d='M10 100 l10 0 l-5 -9 z'/%3E%3Ccircle cx='105' cy='105' r='4'/%3E%3Cpath d='M95 45 l3 -6 l3 6 l6 3 l-6 3 l-3 6 l-3 -6 l-6 -3 z'/%3E%3Cpath d='M5 35 q 5 0 7 5 t 7 5' fill='none' stroke='%23c9b7a4' stroke-width='1.8' stroke-opacity='0.22'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: repeat;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Header Section --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(247, 241, 235, 0.94);
+            backdrop-filter: blur(14px);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            border-bottom: 1px solid var(--skin-border);
+        }
+
+        .logo {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--pure-black);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
+
+        .search-container {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 9px 36px;
+            border-radius: 30px;
+            border: 1px solid var(--skin-border);
+            outline: none;
+            background: #ffffff;
+            font-size: 0.85rem;
+            color: var(--pure-black);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .search-container input:focus {
+            border-color: var(--pure-black);
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.06);
+        }
+
+        .search-container i.fa-magnifying-glass {
+            position: absolute;
+            left: 12px;
+            color: #78716c;
+            font-size: 0.85rem;
+            pointer-events: none;
+        }
+
+        .header-fav-btn {
+            background: #ffffff;
+            border: 1px solid var(--skin-border);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pure-black);
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .header-fav-btn:active {
+            transform: scale(0.9);
+        }
+
+        .fav-count {
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            background: var(--heart-red);
+            color: #ffffff;
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        /* --- Favorites Drawer --- */
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(4px);
+            z-index: 1050;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .fav-sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 82%;
+            max-width: 340px;
+            height: 100vh;
+            background: #ffffff;
+            z-index: 1100;
+            box-shadow: -8px 0 30px rgba(0, 0, 0, 0.15);
+            transform: translateX(100%);
+            transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fav-sidebar.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-header {
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--skin-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-skin);
+        }
+
+        .sidebar-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--pure-black);
+        }
+
+        .close-sidebar-btn {
+            background: none;
+            border: none;
+            font-size: 1.35rem;
+            color: var(--pure-black);
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .fav-items-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .fav-list-empty {
+            text-align: center;
+            color: #8c827a;
+            font-size: 0.85rem;
+            margin-top: 50px;
+        }
+
+        .fav-card-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            padding: 10px;
+            background: var(--skin-card);
+            border-radius: 12px;
+            border: 1px solid var(--skin-border);
+            text-decoration: none;
+            color: var(--pure-black);
+        }
+
+        .fav-card-row img {
+            width: 52px;
+            height: 52px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .fav-card-row .info {
+            flex: 1;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .remove-fav-row {
+            background: none;
+            border: none;
+            color: var(--heart-red);
+            font-size: 1rem;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        /* --- Main 3D Stack Product Showcase --- */
+        .showcase-container {
+            padding: 35px 20px 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card-wrapper {
+            position: sticky;
+            top: 85px;
+            width: 100%;
+            max-width: 375px;
+            aspect-ratio: 1 / 1;
+            margin-bottom: 70px;
+            perspective: 1000px;
+            transform-origin: center top;
+            transition: transform 0.25s ease-out, opacity 0.25s ease-out;
+        }
+
+        .product-card {
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.16);
+            background: #ffffff;
+            display: block;
+            text-decoration: none;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-fav-action {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(8px);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            color: #71717a;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        .card-fav-action.active {
+            color: var(--heart-red);
+        }
+
+        .card-fav-action:active {
+            transform: scale(0.85);
+        }
+
+        .product-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0, 0, 0, 0.88) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .product-name {
+            color: #ffffff;
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+        }
+
+        .search-focus-highlight {
+            outline: 3px solid var(--pure-black);
+            border-radius: var(--radius);
+            animation: pulse-ring 1s ease-out 2;
+        }
+
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5); }
+            100% { box-shadow: 0 0 0 16px rgba(0, 0, 0, 0); }
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--pure-black);
+            color: #ffffff;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            z-index: 2000;
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* --- Seamless 100% Infinite Water Wave Animation --- */
+        .wave-container {
+            position: relative;
+            width: 100%;
+            height: 85px;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave-svg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            display: block;
+        }
+
+        .wave-layer-1 {
+            animation: infiniteWave 12s linear infinite;
+        }
+        .wave-layer-2 {
+            animation: infiniteWaveReverse 18s linear infinite;
+        }
+        .wave-layer-3 {
+            animation: infiniteWave 8s linear infinite;
+        }
+
+        @keyframes infiniteWave {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(-50%, 0, 0);
+            }
+        }
+
+        @keyframes infiniteWaveReverse {
+            0% {
+                transform: translate3d(-50%, 0, 0);
+            }
+            100% {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        /* --- Pure Black Footer --- */
+        footer {
+            background: var(--pure-black);
+            color: var(--text-light);
+            padding-bottom: 35px;
+            margin-top: -1px;
+        }
+
+        .footer-content {
+            padding: 10px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 22px;
+        }
+
+        .subscribe-card {
+            background: #111111;
+            border: 1px solid #222222;
+            border-radius: 18px;
+            padding: 22px 18px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .subscribe-card h3 {
+            color: #ffffff;
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+        }
+
+        .subscribe-card p {
+            font-size: 0.8rem;
+            color: #a1a1aa;
+            margin-bottom: 16px;
+        }
+
+        .subscribe-box {
+            display: flex;
+            position: relative;
+        }
+
+        .subscribe-box input {
+            width: 100%;
+            padding: 11px 16px;
+            border-radius: 30px;
+            border: 1px solid #333333;
+            background: #18181b;
+            outline: none;
+            color: #ffffff;
+            font-size: 0.85rem;
+        }
+
+        .subscribe-box button {
+            position: absolute;
+            right: 4px;
+            top: 4px;
+            bottom: 4px;
+            border: none;
+            background: var(--skin-accent);
+            color: var(--pure-black);
+            padding: 0 18px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .subscribe-box button:active {
+            transform: scale(0.92);
+        }
+
+        .disclaimer {
+            font-size: 0.72rem;
+            line-height: 1.5;
+            color: #71717a;
+            max-width: 440px;
+        }
+
+        .policy-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 16px;
+            justify-content: center;
+        }
+
+        .policy-links a {
+            color: #a1a1aa;
+            text-decoration: none;
+            font-size: 0.76rem;
+            transition: color 0.2s;
+        }
+
+        .policy-links a:hover {
+            color: var(--skin-accent);
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: #52525b;
+            border-top: 1px solid #1c1c1c;
+            padding-top: 16px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">purenura</a>
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Search product..." autocomplete="off">
+        </div>
+        <button class="header-fav-btn" id="favDrawerOpenBtn" aria-label="Favorites">
+            <i class="fa-solid fa-heart"></i>
+            <span class="fav-count" id="favCount">0</span>
+        </button>
+    </header>
+
+    <!-- Side-Slide Favorites Drawer -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <aside class="fav-sidebar" id="favSidebar">
+        <div class="sidebar-header">
+            <h3>Saved Items</h3>
+            <button class="close-sidebar-btn" id="closeSidebarBtn">&times;</button>
+        </div>
+        <div class="fav-items-list" id="favItemsList">
+            <div class="fav-list-empty">No favorites added yet.</div>
+        </div>
+    </aside>
+
+    <!-- Main Products Showcase (10 Products) -->
+    <main class="showcase-container">
+
+        <!-- Product 1 -->
+        <div class="card-wrapper" data-id="1" data-name="moringa">
+            <button class="card-fav-action" onclick="toggleFavorite(event, 1)"><i class="fa-solid fa-heart"></i></button>
+            <a href="https://link.amazon/B03nylvuM">
+                <img src="moringa11.jpg">
+                <div class="product-overlay">
+                    <div class="product-name">moringa powder</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="card-wrapper" data-id="2" data-name="Studio Pro ANC Headphones">
+            <button class="card-fav-action" onclick="toggleFavorite(event, 2)"><i class="fa-solid fa-heart"></i></button>
+            <a href="https://example.com/affiliate-link-2" target="_blank" rel="noopener sponsored" class="product-card">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80" alt="ANC Headphones">
+                <div class="product-overlay">
+                    <div class="product-name">Studio Pro ANC Headphones</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="card-wrapper" data-id="3" data-name="Minimalist Polarized Shades">
+            <button class="card-fav-action" onclick="toggleFavorite(event, 3)"><i class="fa-solid fa-heart"></i></button>
+            <a href="https://example.com/affiliate-link-3" target="_blank" rel="noopener sponsored" class="product-card">
+                <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&auto=format&fit=crop&q=80" alt="Designer Sunglasses">
+                <div class="product-overlay">
+                    <div class="product-name">Minimalist Polarized Shades</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="card-wrapper" data-id="4" data-name="Chrono White Edition Watch">
+            <button class="card-fav-action" onclick="toggleFavorite(event, 4)"><i class="fa-solid fa-heart"></i></button>
+            <a href="https://example.com/affiliate-link-3" target="_blank" rel="noopener sponsored" class="product-card">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80" alt="Minimal Wrist Watch">
+                <div class="product-overlay">
+                    <div class="product-name">Chrono White Edition Watch</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="card-wrapper" data-id="5" data-name="Noir Essence Eau De Parfum">
+            <button class="card-fav-action" onclick="toggleFavorite(event, 5)"><i class="fa-solid fa-heart"></i></button>
+            <a href="https://example.com/affiliate-link-5" target="_blank" rel="noopener sponsored" class="product-card">
+                <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&auto=format&fit=crop&q=80" alt="Luxury Perfume">
+                <div class="product-overlay">
+                    <div class="product-name">Noir Essence Eau De Parfum</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="card-wrapper" data-id="6" data-name="Phantom Speed Running Shoes">
+            <button class="card-fav-action" onclick="toggleFavorite(event, 6)"><i class="fa-solid fa-heart"></i></button>
+            <a href="https://example.com/affiliate-link-6" target="_blank" rel="noopener sponsored" class="product-card">
+                <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&auto=format&fit=crop&q=80" alt="Athletic Sneakers">
+                <div class="product-overlay">
+                    <div class="product-name">Phantom Speed Running Shoes</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="card-wrapper" data-id="7" data-name="Retro Classic Sneakers">
+            <button class="card-fav-action" onclick="toggleFavorite(event, 7)"><i class="fa-solid fa-heart"></i></button>
+            <a href="https://example.com/affiliate-link-7" target="_blank" rel="noopener sponsored" class="product-card">
+                <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600&auto=format&fit=crop&q=80" alt="Streetwear Runners">
+                <div class="product-overlay">
+                    <div class="product-name">Retro Classic Sneakers</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="card-wrapper" data-id="8" data-name="Nordic Matte Ceramic Mug">
+            <button class="card-fav-action" onclick="toggleFavorite(event, 8)"><i class="fa-solid fa-heart"></i></button>
+            <a href="https://example.com/affiliate-link-8" target="_blank" rel="noopener sponsored" class="product-card">
+                <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&auto=format&fit=crop&q=80" alt="Ceramic Coffee Mug">
+                <div class="product-overlay">
+                    <div class="product-name">Nordic Matte Ceramic Mug</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Product 9 -->
+        <div class="card-wrapper" data-id="9" data-name="Classic Analog Film Camera">
+            <button class="card-fav-action" onclick="toggleFavorite(event, 9)"><i class="fa-solid fa-heart"></i></button>
+            <a href="https://example.com/affiliate-link-9" target="_blank" rel="noopener sponsored" class="product-card">
+                <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&auto=format&fit=crop&q=80" alt="Vintage Camera">
+                <div class="product-overlay">
+                    <div class="product-name">Classic Analog Film Camera</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Product 10 -->
+        <div class="card-wrapper" data-id="10" data-name="Urban Voyager Leather Bag">
+            <button class="card-fav-action" onclick="toggleFavorite(event, 10)"><i class="fa-solid fa-heart"></i></button>
+            <a href="https://example.com/affiliate-link-10" target="_blank" rel="noopener sponsored" class="product-card">
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&auto=format&fit=crop&q=80" alt="Leather Backpack">
+                <div class="product-overlay">
+                    <div class="product-name">Urban Voyager Leather Bag</div>
+                </div>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toastMessage">Not matched</div>
+
+    <!-- Infinite Seamless Water Waves Container -->
+    <div class="wave-container">
+        <!-- Layer 1 -->
+        <svg class="wave-svg wave-layer-1" viewBox="0 0 2000 100" preserveAspectRatio="none">
+            <path fill="rgba(0, 0, 0, 0.25)" d="M 0 50 Q 250 15 500 50 T 1000 50 T 1500 50 T 2000 50 L 2000 100 L 0 100 Z"></path>
+        </svg>
+        <!-- Layer 2 (Reverse Wave) -->
+        <svg class="wave-svg wave-layer-2" viewBox="0 0 2000 100" preserveAspectRatio="none">
+            <path fill="rgba(0, 0, 0, 0.55)" d="M 0 60 Q 250 20 500 60 T 1000 60 T 1500 60 T 2000 60 L 2000 100 L 0 100 Z"></path>
+        </svg>
+        <!-- Layer 3 (Solid Black Seamless Base) -->
+        <svg class="wave-svg wave-layer-3" viewBox="0 0 2000 100" preserveAspectRatio="none">
+            <path fill="#000000" d="M 0 70 Q 250 35 500 70 T 1000 70 T 1500 70 T 2000 70 L 2000 100 L 0 100 Z"></path>
+        </svg>
+    </div>
+
+    <!-- Pure Black Footer -->
+    <footer>
+        <div class="footer-content">
+            <!-- Newsletter -->
+            <div class="subscribe-card">
+                <h3>Stay in Sync</h3>
+                <p>Curated design & premium picks straight to your inbox.</p>
+                <form class="subscribe-box" onsubmit="event.preventDefault(); showToast('Subscribed successfully!');">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Join</button>
+                </form>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="disclaimer">
+                <strong>Affiliate Disclaimer:</strong> purenura earns qualifying purchases made through links on this site as an affiliate. This is at zero additional cost to you and ensures unbiased recommendations.
+            </div>
+
+            <!-- Legal Policies -->
+            <div class="policy-links">
+                <a href="https://purenura.github.io/purenura/legal.html">Privacy Policy</a>
+                <a href="https://purenura.github.io/purenura/legal.html">Terms of Service</a>
+                <a href="https://purenura.github.io/purenura/legal.html">Affiliate Disclosure</a>
+                <a href="https://purenura.github.io/purenura/legal.html">Cookie Policy</a>
+            </div>
+
+            <!-- Copyright Line -->
+            <div class="copyright">
+                &copy; 2026 PureNura. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        // --- 1. Stacking Scroll Animation ---
+        const cards = document.querySelectorAll('.card-wrapper');
+
+        function handleStackScroll() {
+            cards.forEach((card) => {
+                const rect = card.getBoundingClientRect();
+                const cardTop = rect.top;
+
+                if (cardTop <= 110) {
+                    const progress = Math.min(Math.max((110 - cardTop) / 320, 0), 1);
+                    const scale = 1 - (progress * 0.12);
+                    const opacity = 1 - (progress * 0.38);
+                    card.style.transform = `scale(${scale}) translateY(${progress * -15}px)`;
+                    card.style.opacity = opacity;
+                } else {
+                    card.style.transform = 'scale(1) translateY(0px)';
+                    card.style.opacity = '1';
+                }
+            });
+        }
+        window.addEventListener('scroll', handleStackScroll, { passive: true });
+        handleStackScroll();
+
+        // --- 2. Toast Notification ---
+        const toast = document.getElementById('toastMessage');
+        let toastTimeout;
+        function showToast(msg) {
+            clearTimeout(toastTimeout);
+            toast.textContent = msg;
+            toast.classList.add('show');
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2300);
+        }
+
+        // --- 3. Search & Scroll Jump ---
+        const searchInput = document.getElementById('searchInput');
+        let searchDebounce;
+
+        searchInput.addEventListener('input', function(e) {
+            const query = e.target.value.trim().toLowerCase();
+            clearTimeout(searchDebounce);
+
+            if (!query) {
+                cards.forEach(c => c.classList.remove('search-focus-highlight'));
+                return;
+            }
+
+            searchDebounce = setTimeout(() => {
+                let matchedCard = null;
+
+                cards.forEach(card => {
+                    const name = card.getAttribute('data-name').toLowerCase();
+                    card.classList.remove('search-focus-highlight');
+                    if (!matchedCard && name.includes(query)) {
+                        matchedCard = card;
+                    }
+                });
+
+                if (matchedCard) {
+                    const headerOffset = 90;
+                    const elementPosition = matchedCard.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    matchedCard.classList.add('search-focus-highlight');
+                    setTimeout(() => {
+                        matchedCard.classList.remove('search-focus-highlight');
+                    }, 2200);
+                } else {
+                    showToast("Not matched");
+                }
+            }, 450);
+        });
+
+        // --- 4. Favorites Drawer Logic ---
+        let favorites = [];
+        const drawerOverlay = document.getElementById('drawerOverlay');
+        const favSidebar = document.getElementById('favSidebar');
+        const favDrawerOpenBtn = document.getElementById('favDrawerOpenBtn');
+        const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+        const favItemsList = document.getElementById('favItemsList');
+        const favCountBadge = document.getElementById('favCount');
+
+        function openDrawer() {
+            renderFavoritesList();
+            drawerOverlay.classList.add('active');
+            favSidebar.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            drawerOverlay.classList.remove('active');
+            favSidebar.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        favDrawerOpenBtn.addEventListener('click', openDrawer);
+        closeSidebarBtn.addEventListener('click', closeDrawer);
+        drawerOverlay.addEventListener('click', closeDrawer);
+
+        function toggleFavorite(e, id) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const card = document.querySelector(`.card-wrapper[data-id="${id}"]`);
+            const name = card.getAttribute('data-name');
+            const img = card.querySelector('img').src;
+            const link = card.querySelector('a').href;
+            const btn = card.querySelector('.card-fav-action');
+
+            const index = favorites.findIndex(item => item.id === id);
+
+            if (index > -1) {
+                favorites.splice(index, 1);
+                btn.classList.remove('active');
+            } else {
+                favorites.push({ id, name, img, link });
+                btn.classList.add('active');
+            }
+
+            favCountBadge.textContent = favorites.length;
+            renderFavoritesList();
+        }
+
+        function renderFavoritesList() {
+            favItemsList.innerHTML = '';
+            if (favorites.length === 0) {
+                favItemsList.innerHTML = '<div class="fav-list-empty">No favorites added yet.</div>';
+                return;
+            }
+
+            favorites.forEach(item => {
+                const row = document.createElement('div');
+                row.className = 'fav-card-row';
+                row.innerHTML = `
+                    <img src="${item.img}" alt="${item.name}">
+                    <div class="info">${item.name}</div>
+                    <button class="remove-fav-row" onclick="removeFavoriteFromDrawer(${item.id})">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                `;
+                favItemsList.appendChild(row);
+            });
+        }
+
+        function removeFavoriteFromDrawer(id) {
+            const index = favorites.findIndex(item => item.id === id);
+            if (index > -1) {
+                favorites.splice(index, 1);
+                favCountBadge.textContent = favorites.length;
+                const cardBtn = document.querySelector(`.card-wrapper[data-id="${id}"] .card-fav-action`);
+                if (cardBtn) cardBtn.classList.remove('active');
+                renderFavoritesList();
+            }
+        }
+    </script>
+</body>
+</html>
